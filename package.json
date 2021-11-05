@@ -1,6 +1,7 @@
 {
   "name": "weathertoolkitsaga",
   "version": "0.1.0",
+  "homepage": "http://mehnartopreacter.github.io/weathertoolkitsaga",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.2",
@@ -23,6 +24,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "clean": "gh-pages-clean",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
