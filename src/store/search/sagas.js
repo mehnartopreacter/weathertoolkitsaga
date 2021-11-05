@@ -6,8 +6,6 @@ import { getSearchInput } from "./selectors";
 
 function* getLocations() {
   try {
-    yield put(handleLoading());
-
     const searchInput = yield select(getSearchInput);
 
     const response = yield call(
@@ -18,7 +16,6 @@ function* getLocations() {
     yield put(handleLocationsReceived(response.data));
   } catch (err) {
     console.log(err);
-    yield put(handleError());
   }
 }
 export function* searchWatcher() {
