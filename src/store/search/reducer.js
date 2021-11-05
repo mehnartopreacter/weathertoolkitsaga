@@ -9,8 +9,17 @@ export const searchSlice = createSlice({
   name: "search",
   initialState: searchInitialState,
   reducers: {
+    handleLoading(state) {
+      state.isLoading = true;
+    },
+    handleError(state) {
+      state.isLoading = false;
+      state.isFailed = true;
+    },
     handleLocationsReceived(state, action) {
       state.locations = action.payload;
+      state.isLoading = false;
+      state.isFailed = false;
     },
     handleSearch(state, action) {
       state.searchInput = action.payload;
