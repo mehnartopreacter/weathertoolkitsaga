@@ -1,23 +1,20 @@
-import axios from "axios";
 import { put, call, takeLatest, select } from "redux-saga/effects";
-import { REQUEST_LOCATIONS } from "./actions";
-import { handleLocationsReceived } from "./reducer";
 import { getSearchInput } from "./selectors";
+import { getLocationSuggestionData } from "../../services/weatherService";
+import { getLocations } from "./actions";
 
-function* getLocations() {
+function* fetchLocations() {
   try {
     const searchInput = yield select(getSearchInput);
 
-    const response = yield call(
-      axios,
-      `https://api.weatherapi.com/v1/search.json?key=34e791de0bd74b92b08143557210211&q=${searchInput}`
-    );
+    const response = yield call(getLocationSuggestionData, searchInput);
 
-    yield put(handleLocationsReceived(response.data));
+    yield put(getLocations.success(response.data));
   } catch (err) {
     console.log(err);
+    yield put(getLocations.error);
   }
 }
 export function* searchWatcher() {
-  yield takeLatest(REQUEST_LOCATIONS, getLocations);
+  yield takeLatest(getLocations.request, fetchLocations);
 }
