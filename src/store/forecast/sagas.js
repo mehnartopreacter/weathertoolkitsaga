@@ -1,4 +1,3 @@
-import axios from "axios";
 import { put, call, takeLatest, select } from "redux-saga/effects";
 import { getForecast } from "./actions";
 import { getSearchInput } from "../search/selectors";

@@ -1,4 +1,3 @@
-import axios from "axios";
 import { put, call, takeLatest, select } from "redux-saga/effects";
 import { REQUEST_LOCATIONS } from "./actions";
 import { handleLocationsReceived } from "./reducer";
