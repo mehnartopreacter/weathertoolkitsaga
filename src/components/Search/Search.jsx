@@ -1,6 +1,6 @@
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
 import { useDispatch, useSelector } from "react-redux";
-import { requestLocations } from "../../store/search/actions";
+import { getLocations } from "../../store/search/actions";
 import { selectLocations } from "../../store/search/selectors";
 import { handleSearch } from "../../store/search/reducer";
 import { getForecast } from "../../store/forecast/actions";
@@ -13,7 +13,7 @@ export const Search = () => {
   const handleOnSearch = (string) => {
     if (string.trim()) {
       dispatch(handleSearch(string));
-      dispatch(requestLocations());
+      dispatch(getLocations.request());
     }
   };
 
