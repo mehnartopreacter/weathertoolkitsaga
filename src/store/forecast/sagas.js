@@ -2,15 +2,13 @@ import axios from "axios";
 import { put, call, takeLatest, select } from "redux-saga/effects";
 import { getForecast } from "./actions";
 import { getSearchInput } from "../search/selectors";
+import { getForecastData } from "../../services/weatherService";
 
 function* fetchForecast() {
   try {
     const searchInput = yield select(getSearchInput);
 
-    const response = yield call(
-      axios,
-      `https://api.weatherapi.com/v1/forecast.json?key=34e791de0bd74b92b08143557210211&q=${searchInput}&days=10&aqi=no&alerts=no`
-    );
+    const response = yield call(getForecastData, searchInput);
 
     yield put(getForecast.success(response.data));
   } catch (err) {
