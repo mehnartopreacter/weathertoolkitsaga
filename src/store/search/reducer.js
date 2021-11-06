@@ -1,13 +1,16 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { getForecast } from "../forecast/actions";
+import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
 import { getLocations } from "./actions";
 
-const searchInitialState = {
-  locations: null,
+export const searchAdapter = createEntityAdapter({
+  selectId: (location) => location.id,
+  sortComparer: (a, b) => a.name.localeCompare(b.name),
+});
+
+const searchInitialState = searchAdapter.getInitialState({
   searchInput: "",
   isLoading: false,
   isFailed: false,
-};
+});
 
 export const searchSlice = createSlice({
   name: "search",
@@ -23,7 +26,7 @@ export const searchSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getLocations.success, (state, action) => {
-        state.locations = action.payload;
+        searchAdapter.setAll(state, action.payload);
         state.isLoading = false;
         state.isFailed = false;
       })

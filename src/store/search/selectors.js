@@ -1,15 +1,7 @@
-import { nanoid } from "@reduxjs/toolkit";
+import { searchAdapter } from "./reducer";
 
 export const getSearchInput = (state) => state.search?.searchInput;
 
-export const selectLocations = (state) => {
-  const locations = state.search?.locations;
-  if (locations) {
-    return locations.map((item) => ({
-      name: item.name,
-      id: nanoid(),
-    }));
-  } else {
-    return [];
-  }
-};
+export const { selectAll: selectAllLocations } = searchAdapter.getSelectors(
+  (state) => state.search
+);
