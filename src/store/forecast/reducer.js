@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getForecast } from "./actions";
 
 const forecastInitialState = {
   isLoading: false,
@@ -11,25 +12,24 @@ const forecastInitialState = {
 export const forecastSlice = createSlice({
   name: "forecast",
   initialState: forecastInitialState,
-  reducers: {
-    handleLoading(state) {
-      state.isLoading = true;
-    },
-    handleError(state) {
-      state.isLoading = false;
-      state.isFailed = true;
-    },
-    handleForecastReceived(state, action) {
-      state.todayCast = action.payload.current;
-      state.weekCast = action.payload.forecast;
-      state.location = action.payload.location;
-      state.isLoading = false;
-      state.isFailed = false;
-    },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(getForecast.request, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getForecast.success, (state, action) => {
+        state.todayCast = action.payload.current;
+        state.weekCast = action.payload.forecast;
+        state.location = action.payload.location;
+        state.isLoading = false;
+        state.isFailed = false;
+      })
+      .addCase(getForecast.error, (state) => {
+        state.isLoading = false;
+        state.isFailed = true;
+      });
   },
 });
-
-export const { handleLoading, handleError, handleForecastReceived } =
-  forecastSlice.actions;
 
 export default forecastSlice.reducer;

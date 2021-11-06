@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { requestLocations } from "../../store/search/actions";
 import { selectLocations } from "../../store/search/selectors";
 import { handleSearch } from "../../store/search/reducer";
-import { requestForecast } from "../../store/forecast/actions";
+import { getForecast } from "../../store/forecast/actions";
 import { InputWrapper } from "./Search.styles";
 
 export const Search = () => {
@@ -18,7 +18,7 @@ export const Search = () => {
   };
 
   const handleOnSelect = () => {
-    dispatch(requestForecast());
+    dispatch(getForecast.request());
   };
 
   return (
