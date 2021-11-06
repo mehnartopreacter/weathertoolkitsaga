@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/weathertoolkitsaga/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/weathertoolkitsaga/static/js/main.988a1ea4.chunk.js",
-    "main.js.map": "/weathertoolkitsaga/static/js/main.988a1ea4.chunk.js.map",
+    "main.js": "/weathertoolkitsaga/static/js/main.31c6b940.chunk.js",
+    "main.js.map": "/weathertoolkitsaga/static/js/main.31c6b940.chunk.js.map",
     "runtime-main.js": "/weathertoolkitsaga/static/js/runtime-main.5c8657bf.js",
     "runtime-main.js.map": "/weathertoolkitsaga/static/js/runtime-main.5c8657bf.js.map",
-    "static/js/2.a3cc25c5.chunk.js": "/weathertoolkitsaga/static/js/2.a3cc25c5.chunk.js",
-    "static/js/2.a3cc25c5.chunk.js.map": "/weathertoolkitsaga/static/js/2.a3cc25c5.chunk.js.map",
+    "static/js/2.918a721e.chunk.js": "/weathertoolkitsaga/static/js/2.918a721e.chunk.js",
+    "static/js/2.918a721e.chunk.js.map": "/weathertoolkitsaga/static/js/2.918a721e.chunk.js.map",
     "index.html": "/weathertoolkitsaga/index.html",
     "static/css/main.6dea0f05.chunk.css.map": "/weathertoolkitsaga/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.a3cc25c5.chunk.js.LICENSE.txt": "/weathertoolkitsaga/static/js/2.a3cc25c5.chunk.js.LICENSE.txt"
+    "static/js/2.918a721e.chunk.js.LICENSE.txt": "/weathertoolkitsaga/static/js/2.918a721e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.5c8657bf.js",
-    "static/js/2.a3cc25c5.chunk.js",
+    "static/js/2.918a721e.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.988a1ea4.chunk.js"
+    "static/js/main.31c6b940.chunk.js"
   ]
 }
