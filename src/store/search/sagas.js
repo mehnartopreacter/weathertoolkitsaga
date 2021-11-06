@@ -1,7 +1,7 @@
 import axios from "axios";
 import { put, call, takeLatest, select } from "redux-saga/effects";
 import { REQUEST_LOCATIONS } from "./actions";
-import { handleLoading, handleError, handleLocationsReceived } from "./reducer";
+import { handleLocationsReceived } from "./reducer";
 import { getSearchInput } from "./selectors";
 
 function* getLocations() {
